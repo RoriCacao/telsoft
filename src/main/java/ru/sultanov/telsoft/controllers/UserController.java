@@ -32,7 +32,7 @@ public class UserController {
         this.userFacade = userFacade;
         this.responseErrorValidation = responseErrorValidation;
     }
-
+    //Получение информации о текущем пользователе
     @GetMapping("/")
     public ResponseEntity<PersonDTO> getCurrentUser(Principal principal) {
         Person person = userService.getCurrentPerson(principal);
@@ -40,7 +40,7 @@ public class UserController {
 
         return new ResponseEntity<>(personDTO, HttpStatus.OK);
     }
-
+    //Получение информаци о пользователе с конкретным ID
     @GetMapping("/{userId}")
     public ResponseEntity<PersonDTO> getUserProfile(@PathVariable("userId") String userId) {
         Person person = userService.getPersonById(Long.parseLong(userId));
@@ -49,6 +49,7 @@ public class UserController {
         return new ResponseEntity<>(personDTO, HttpStatus.OK);
     }
 
+    //Обновление информации о пользователе
     @PostMapping("/update")
     public ResponseEntity<Object> updateUser(@Valid @RequestBody PersonDTO personDTO, BindingResult bindingResult, Principal principal) {
         ResponseEntity<Object> errors = responseErrorValidation.mapValidationService(bindingResult);
@@ -60,6 +61,7 @@ public class UserController {
         return new ResponseEntity<>(personUpdated, HttpStatus.OK);
     }
 
+    //Список всех зарегистрированных пользователей
     @GetMapping("/all")
     public ResponseEntity<List<PersonDTO>> getAllUsers() {
         List<PersonDTO> allUsers = userService.allPerson().stream().map(userFacade::personToPersonDTO).toList();

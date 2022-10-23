@@ -24,6 +24,7 @@ public class ImageUploadController {
         this.imageUploadService = imageUploadService;
     }
 
+    //Загрузка изображения пользователя
     @PostMapping("/upload")
     public ResponseEntity<MessageResponse> uploadImageToUser(@RequestParam("file") MultipartFile file,
                                                              Principal principal) throws IOException {
@@ -32,12 +33,12 @@ public class ImageUploadController {
         return new ResponseEntity<>(new MessageResponse("Image uploaded successfully"), HttpStatus.OK);
     }
 
-
+    //Получение изображения пользователя
     @GetMapping("/profileImage")
-    public ResponseEntity<ImageModel> getImageForUser(Principal principal) {
+    public ResponseEntity<byte[]> getImageForUser(Principal principal) {
         ImageModel imageModel = imageUploadService.getImageToUser(principal);
-
-        return new ResponseEntity<>(imageModel, HttpStatus.OK);
+        byte[] result = imageModel.getImageBytes();
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 

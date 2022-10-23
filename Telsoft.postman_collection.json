@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "f407284a-9c29-44d9-83aa-52b01d901fd9",
+		"name": "Telsoft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21207025"
+	},
+	"item": [
+		{
+			"name": "Signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"test@i.io\",\r\n    \"password\" : \"test123\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"testmair@221.io\",\r\n    \"username\":\"teswwt1\",\r\n    \"firstname\":\"test\",\r\n    \"lastname\":\"test\",\r\n    \"password\": \"test123\",\r\n    \"confirmPassword\":\"test123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiZmlyc3RuYW1lIjpudWxsLCJpZCI6IjIiLCJ1c2VybmFtZSI6IlJvcm9DYWNhb0AxNDg4LmNvbSIsImxhc3RuYW1lIjpudWxsLCJpYXQiOjE2NjIwNTc5OTgsImV4cCI6MTY2MjA1ODU5OH0.QqkWHLYj0l7NPzmL5mytxZg8WiXlN0LdqMGxi1_ym1YEpIYRwexZQsSNUXQOEUZNz6N9lpqmiQx_YixZp4Ta6Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\":\"Jojo\",\r\n    \"lastname\":\"Booba\",\r\n    \"bio\":\"Cool Guy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadImage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiZmlyc3RuYW1lIjpudWxsLCJpZCI6IjIiLCJ1c2VybmFtZSI6InRlc3RtYWlyQDIyMS5pbyIsImxhc3RuYW1lIjpudWxsLCJpYXQiOjE2NjYyMDI4MTEsImV4cCI6MTY2NjIwMzQxMX0.tafyEEu3R0HtSUKdN5qBJvlpDYxnhHSbwpZZ1TXXIYu_h3VNSFfTkBKdAzk2hSx49n0tNXyCoZukz97Y0hADNw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/denis/Изображения/DzuYh.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/image/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"image",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCurrentUser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiZmlyc3RuYW1lIjpudWxsLCJpZCI6IjIiLCJ1c2VybmFtZSI6IlJvcm9DYWNhb0AxNDg4LmNvbSIsImxhc3RuYW1lIjpudWxsLCJpYXQiOjE2NjIyMjMzMzgsImV4cCI6MTY2MjIyMzkzOH0.VPK0K3F_11rvkZ0CkctYW2I5mwo0HnZ5j0127gkWQoLmAv-QH6-wytEBwu-Yn9sw5wCPLlX0PAPPNPmM6FEnYA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProfileImage",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiZmlyc3RuYW1lIjpudWxsLCJpZCI6IjIiLCJ1c2VybmFtZSI6InRlc3RtYWlyQDIyMS5pbyIsImxhc3RuYW1lIjpudWxsLCJpYXQiOjE2NjYyMDIzNzYsImV4cCI6MTY2NjIwMjk3Nn0.oysjJCo1c76UZ7xiN_R7h8XDV3S7Dp2LK0ohZIet1tAB7-VUe7yv3fvKhxXe_3CCCpRjQP6s2RWS6N2a3ilPLA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/image/profileImage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"image",
+						"profileImage"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZmlyc3RuYW1lIjpudWxsLCJpZCI6IjEiLCJ1c2VybmFtZSI6InRlc3RtYWlyQDIyMS5pbyIsImxhc3RuYW1lIjpudWxsLCJpYXQiOjE2NjY1Mzk3NTgsImV4cCI6MTY2NjU0MDM1OH0.8KPR3QrHF-lKnQd7u1e5o-LsXuF42UhucZUqeYbdA5iV4KEczvmVOQ0_yxR3Vs5oCc6UNhqgI10X5pqiLO-PGQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZmlyc3RuYW1lIjpudWxsLCJpZCI6IjEiLCJ1c2VybmFtZSI6InRlc3RtYWlyQDIyMS5pbyIsImxhc3RuYW1lIjpudWxsLCJpYXQiOjE2NjY1Mzk3NTgsImV4cCI6MTY2NjU0MDM1OH0.8KPR3QrHF-lKnQd7u1e5o-LsXuF42UhucZUqeYbdA5iV4KEczvmVOQ0_yxR3Vs5oCc6UNhqgI10X5pqiLO-PGQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.sultanov.telsoft.entity.enums.ERole;
@@ -13,6 +14,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
+//Модель сущности Person
 @Data
 @Entity
 @AllArgsConstructor
@@ -36,11 +38,11 @@ public class Person implements UserDetails {
     private String password;
 
     @ElementCollection(targetClass = ERole.class)
-    @CollectionTable(name = "user_role",joinColumns = @JoinColumn(name = "user_id"))
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     private Set<ERole> role = new HashSet<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "image_id")
+    @OneToOne(mappedBy = "person")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private ImageModel image;
 
     @JsonFormat(pattern = "yyy-mm-dd HH:ss")
@@ -51,7 +53,7 @@ public class Person implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
     @PrePersist
-    protected void onCreate(){
+    protected void onCreate() {
         this.createdTime = LocalDateTime.now();
     }
 
@@ -68,11 +70,11 @@ public class Person implements UserDetails {
     }
 
     /*
-    * SECURITY
-    */
+     * SECURITY
+     */
 
     @Override
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 

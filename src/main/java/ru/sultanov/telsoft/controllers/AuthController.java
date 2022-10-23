@@ -36,6 +36,7 @@ public class AuthController {
     @Autowired
     private JWTTokenProvider jwtTokenProvider;
 
+    //Аутентификация пользователя
     @PostMapping("/signing")
     public ResponseEntity<Object> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult bindingResult){
         ResponseEntity<Object> errors = responseErrorValidation.mapValidationService(bindingResult);
@@ -51,6 +52,7 @@ public class AuthController {
         return ResponseEntity.ok(new JWTTokenSuccessResponse(true, jwt));
     }
 
+    //Регистрацмя нового пользователя
     @PostMapping("/signup")
     public ResponseEntity<Object> registerUser(@Valid @RequestBody SignupRequest signupRequest, BindingResult bindingResult){
         ResponseEntity<Object> errors = responseErrorValidation.mapValidationService(bindingResult);

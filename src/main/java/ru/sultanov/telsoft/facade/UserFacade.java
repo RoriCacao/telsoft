@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import ru.sultanov.telsoft.dto.PersonDTO;
 import ru.sultanov.telsoft.entity.Person;
 
+//Конвертация класса PersonDTO в Person
 @Component
 public class UserFacade {
 

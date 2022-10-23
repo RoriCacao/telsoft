@@ -6,6 +6,7 @@ import ru.sultanov.telsoft.entity.enums.ERole;
 import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
+//Data transfer object сущности Person
 @Data
 public class PersonDTO {
 
